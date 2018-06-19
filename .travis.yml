@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+- '8'
+deploy:
+  provider: npm
+  email: bano.notit@gmail.com
+  api_key:
+    secure: mIS6YUcUd0dcNYvQ9GvmQHY15qJq7zX1ct8MarGLeyOAZYwfohR/xklFYisXxip5Je4i3c+atQks/myksqVWXpMyZQUuIdiZGMGWImjItkREEiyr9Uyl0A/wnuPbUKF3p2RO1r4+9seTBDCXGpNS5mYkj66izIH8DrOFS6Q+TBfgZbzBdI6Uk2imQD1/OSrjH2iD5reEzgoMPFTrRHABSEOxPg/zm3TRNOr/uZB+pAfneVX2JQnaoQD8hAk1PKhfPpHpqe0gJYJ6qoQ5Sf3EXjlfhKqdYwe2hFB/QzqX0CoEZ/peCw1XlAPigOAaqSvTFaoHaaPxpztYc8iwCtj1rK1U0qlVM8bxdnnRQzRDPI6IwOvieFPhsX8qUu7VytsoDKnopaKSJ+R0g4Q0gRmLNRGmvKoFJgqGwu2ArJEbsKboSEHqEhMMDgMV71yLWk3oF3UnrCzI3+OrR2dQq3Ast8mC+CUYTkKhbOzs5VXbHvhmL9FacqSkDPeBBYUzuyVGG6DQqWSxdK/7skREtSalAMcfEurq/vmN3yOuCbOvx/itbZX3TwVmzubquvuOI3xyYH72COH3euZmaa7PnL9gTFCMv9kpnJGz4H92/SVeTnfcFnBC/CnA982eCeRuFxCsnrkgqEoIMyfbyORjQgpoHTpeZwzn8nUB/bysK2dGu0w=
+  on:
+    repo: BANOnotIT/mst-router
