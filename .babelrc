@@ -6,8 +6,7 @@
         "modules": false
       }
     ],
-    
-      "es2015-rollup",
+    "es2015-rollup",
     "react",
     "stage-0"
   ],
@@ -21,16 +20,7 @@
         "stage-0"
       ],
       "plugins": [
-        "transform-decorators-legacy",
-        "syntax-async-functions",
-        "transform-runtime",
-        [
-          "transform-regenerator",
-          {
-            "async": true,
-            "asyncGenerators": true
-          }
-        ]
+        "transform-runtime"
       ]
     }
   }
