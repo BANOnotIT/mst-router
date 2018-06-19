@@ -1,6 +1,7 @@
 //@flow
 // noinspection ES6CheckImport
 import type {Params, Route} from './route'
+import type {ObservableMap} from 'mobx'
 import RouteModel from './route'
 import {types} from 'mobx-state-tree'
 import {pathToIds} from './utils'
@@ -27,6 +28,60 @@ type RouterViews = {
 
     +_rootFreeIds: string[] | void;
 }
+
+
+type IMapEntry<V> = [string, V];
+type IMapEntries<V> = IMapEntry<V>[];
+
+interface IKeyValueMap<V> {
+    [key: string]: V;
+}
+
+
+declare class ObMap<V> {
+
+    $mobx: {};
+    name: string;
+    interceptors: any;
+    changeListeners: any;
+    size: number;
+
+    constructor(initialData?: IMapEntries<V> | IKeyValueMap<V>, valueModeFunc?: Function): this;
+
+    has(key: string): boolean;
+
+    set(key: $PropertyType<V, "id">, value: V): void;
+
+    delete(key: string): boolean;
+
+    get(key: $PropertyType<V, "id">): V | void;
+
+    keys(): $PropertyType<V, "id">[] & Iterator<$PropertyType<V, "id">>;
+
+    values(): V[] & Iterator<V>;
+
+    entries(): IMapEntries<V> & Iterator<IMapEntry<V>>;
+
+    forEach(callback: (value: V, key: $PropertyType<V, "id">, object: IKeyValueMap<V>) => void,
+            thisArg?: any): void;
+
+    merge(other: ObservableMap<V> | IKeyValueMap<V>): ObservableMap<V>;
+
+    clear(): void;
+
+    replace(other: ObservableMap<V> | IKeyValueMap<V>): ObservableMap<V>;
+
+    toJS(): IKeyValueMap<V>;
+
+    toJs(): IKeyValueMap<V>;
+
+    toJSON(): IKeyValueMap<V>;
+
+    toString(): string;
+
+    put(V): void
+}
+
 
 type RouterStatic = {
 
@@ -73,7 +128,6 @@ const RouterStoreModel = types
             let leaf = {}
 
             that.routes.values().forEach((view) => {
-                //$FlowIgnore
                 view.route
                     .reduce((root, val) => {
                         //$FlowIgnore
@@ -83,10 +137,8 @@ const RouterStoreModel = types
 
                         //$FlowIgnore
                         if (root[val] === undefined) {
-                            //$FlowIgnore
                             root[val] = {}
                         }
-                        //$FlowIgnore
                         return root[val]
 
                     }, leaf)[Index] = view
@@ -200,5 +252,3 @@ function getViewFromLeafsAndPath(leaf: Leaf, ids: string[]): Route | void {
     return leaf[Index]
 
 }
-
-
