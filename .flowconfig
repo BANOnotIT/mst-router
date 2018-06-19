@@ -1,0 +1,14 @@
+[ignore]
+
+[include]
+.*/node_modules/*
+
+[libs]
+node_modules/mobx/lib/mobx.js.flow
+
+[options]
+esproposal.decorators=ignore
+suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
+unsafe.enable_getters_and_setters=true
+
+[lints]
