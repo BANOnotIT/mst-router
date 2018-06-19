@@ -6,7 +6,7 @@ import React from "react";
 import "should";
 import "should-sinon";
 
-import {RouteModel, RouterStore} from "../index.js";
+import {RouteModel, RouterStore} from "../src/index.js";
 import {getSnapshot} from "mobx-state-tree";
 
 describe("mobx-state-tree-router", () => {
